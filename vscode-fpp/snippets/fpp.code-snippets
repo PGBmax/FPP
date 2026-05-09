@@ -1,0 +1,140 @@
+{
+  "Condition si/alors/fin": {
+    "prefix": "si",
+    "body": [
+      "si ${1:condition} alors",
+      "\t${2:# corps}",
+      "fin"
+    ],
+    "description": "Bloc conditionnel si/alors/fin"
+  },
+
+  "Condition si/sinon/fin": {
+    "prefix": "side",
+    "body": [
+      "si ${1:condition} alors",
+      "\t${2:# corps si vrai}",
+      "sinon",
+      "\t${3:# corps si faux}",
+      "fin"
+    ],
+    "description": "Bloc conditionnel si/sinon/fin"
+  },
+
+  "Condition si/sinonsi/sinon/fin": {
+    "prefix": "sise",
+    "body": [
+      "si ${1:condition} alors",
+      "\t${2:# corps}",
+      "sinonsi ${3:autre_condition} alors",
+      "\t${4:# corps}",
+      "sinon",
+      "\t${5:# corps}",
+      "fin"
+    ],
+    "description": "Bloc conditionnel avec sinonsi"
+  },
+
+  "Boucle tantque": {
+    "prefix": "tantque",
+    "body": [
+      "tantque ${1:condition} faire",
+      "\t${2:# corps}",
+      "fin"
+    ],
+    "description": "Boucle tantque/faire/fin"
+  },
+
+  "Boucle pour": {
+    "prefix": "pour",
+    "body": [
+      "pour ${1:i} de ${2:1} a ${3:10} faire",
+      "\t${4:# corps}",
+      "fin"
+    ],
+    "description": "Boucle pour/de/a/faire/fin"
+  },
+
+  "Définition de fonction": {
+    "prefix": "fonction",
+    "body": [
+      "fonction ${1:nom}(${2:params}) faire",
+      "\t${3:# corps}",
+      "\tretourner ${4:resultat}",
+      "fin"
+    ],
+    "description": "Déclaration d'une fonction"
+  },
+
+  "Variable entier": {
+    "prefix": "ent",
+    "body": "entier ${1:nom} = ${2:0}",
+    "description": "Déclaration d'une variable entière"
+  },
+
+  "Variable decimal": {
+    "prefix": "dec",
+    "body": "decimal ${1:nom} = ${2:0.0}",
+    "description": "Déclaration d'une variable décimale"
+  },
+
+  "Variable texte": {
+    "prefix": "txt",
+    "body": "texte ${1:nom} = \"${2:}\"",
+    "description": "Déclaration d'une variable texte"
+  },
+
+  "Variable bool": {
+    "prefix": "bol",
+    "body": "bool ${1:nom} = ${2|vrai,faux|}",
+    "description": "Déclaration d'une variable booléenne"
+  },
+
+  "Constante": {
+    "prefix": "const",
+    "body": "const ${1|entier,decimal,texte,bool|} ${2:NOM} = ${3:valeur}",
+    "description": "Déclaration d'une constante"
+  },
+
+  "Afficher": {
+    "prefix": "aff",
+    "body": "afficher(${1:\"message\"})",
+    "description": "Afficher un message"
+  },
+
+  "Lire (texte)": {
+    "prefix": "lire",
+    "body": "texte ${1:saisie} = lire(\"${2:Entrez quelque chose : }\")",
+    "description": "Lire une entrée texte"
+  },
+
+  "Lire entier": {
+    "prefix": "lent",
+    "body": "entier ${1:nombre} = lire_entier(\"${2:Entrez un entier : }\")",
+    "description": "Lire un entier"
+  },
+
+  "Lire decimal": {
+    "prefix": "ldec",
+    "body": "decimal ${1:nombre} = lire_decimal(\"${2:Entrez un décimal : }\")",
+    "description": "Lire un décimal"
+  },
+
+  "Liste vide": {
+    "prefix": "liste",
+    "body": "liste ${1:nom} = []",
+    "description": "Déclaration d'une liste vide"
+  },
+
+  "Dictionnaire vide": {
+    "prefix": "dict",
+    "body": "dict ${1:nom} = {}",
+    "description": "Déclaration d'un dictionnaire vide"
+  },
+
+  "Retourner": {
+    "prefix": "ret",
+    "body": "retourner ${1:valeur}",
+    "description": "Instruction retourner"
+  }
+}

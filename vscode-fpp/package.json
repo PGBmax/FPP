@@ -1,0 +1,42 @@
+{
+  "name": "vscode-fpp",
+  "displayName": "F++ Language Support",
+  "description": "Coloration syntaxique, snippets et configuration du langage F++ (.fpp)",
+  "version": "0.1.0",
+  "publisher": "pierre",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Programming Languages"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pierre/fpp"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "fpp",
+        "aliases": ["F++", "fpp"],
+        "extensions": [".fpp"],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/fpp-light.png",
+          "dark": "./icons/fpp-dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fpp",
+        "scopeName": "source.fpp",
+        "path": "./syntaxes/fpp.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "fpp",
+        "path": "./snippets/fpp.code-snippets"
+      }
+    ]
+  }
+}

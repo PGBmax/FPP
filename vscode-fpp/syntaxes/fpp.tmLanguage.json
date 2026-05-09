@@ -1,0 +1,130 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "F++",
+  "scopeName": "source.fpp",
+  "fileTypes": ["fpp"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#constants" },
+    { "include": "#function-definition" },
+    { "include": "#builtins" },
+    { "include": "#function-call" },
+    { "include": "#keywords-control" },
+    { "include": "#keywords-type" },
+    { "include": "#operators-logical" },
+    { "include": "#operators-comparison" },
+    { "include": "#operators-assignment" },
+    { "include": "#operators-arithmetic" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "name": "comment.line.number-sign.fpp",
+      "match": "#.*$"
+    },
+
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.fpp",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.fpp",
+              "match": "\\\\[nrt\\\\\"']"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.fpp",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.fpp",
+              "match": "\\\\[nrt\\\\\"']"
+            }
+          ]
+        }
+      ]
+    },
+
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.fpp",
+          "match": "\\b\\d+\\.\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.fpp",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+
+    "constants": {
+      "name": "constant.language.fpp",
+      "match": "\\b(vrai|faux|nul)\\b"
+    },
+
+    "function-definition": {
+      "comment": "Capture: fonction nom(...)",
+      "match": "\\b(fonction)\\s+([a-zA-Z_àâéèêëîïôùûüÀÂÉÈÊËÎÏÔÙÛÜ][a-zA-Z0-9_àâéèêëîïôùûüÀÂÉÈÊËÎÏÔÙÛÜ]*)\\b",
+      "captures": {
+        "1": { "name": "keyword.declaration.function.fpp" },
+        "2": { "name": "entity.name.function.fpp" }
+      }
+    },
+
+    "builtins": {
+      "name": "support.function.builtin.fpp",
+      "match": "\\b(afficher|lire|lire_entier|lire_decimal|racine|longueur|arrondir|hasard_entier|hasard_decimal|trier|inverser|ajouter|supprimer|contient)\\b"
+    },
+
+    "function-call": {
+      "comment": "Identifiant suivi de ( — appel de fonction utilisateur",
+      "match": "\\b([a-zA-Z_àâéèêëîïôùûüÀÂÉÈÊËÎÏÔÙÛÜ][a-zA-Z0-9_àâéèêëîïôùûüÀÂÉÈÊËÎÏÔÙÛÜ]*)\\s*(?=\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.fpp" }
+      }
+    },
+
+    "keywords-control": {
+      "name": "keyword.control.fpp",
+      "match": "\\b(si|alors|sinonsi|sinon|tantque|pour|de|faire|fin|casser|continuer|retourner)\\b"
+    },
+
+    "keywords-type": {
+      "name": "storage.type.fpp",
+      "match": "\\b(entier|decimal|texte|bool|liste|dict|const)\\b"
+    },
+
+    "operators-logical": {
+      "name": "keyword.operator.logical.fpp",
+      "match": "\\b(et|ou|non)\\b"
+    },
+
+    "operators-comparison": {
+      "name": "keyword.operator.comparison.fpp",
+      "match": "(==|!=|<=|>=|<|>)"
+    },
+
+    "operators-assignment": {
+      "name": "keyword.operator.assignment.fpp",
+      "match": "(\\+=|-=|\\*=|/=|=)"
+    },
+
+    "operators-arithmetic": {
+      "name": "keyword.operator.arithmetic.fpp",
+      "match": "(\\*\\*|[+\\-*/%])"
+    },
+
+    "identifiers": {
+      "name": "variable.other.fpp",
+      "match": "\\b[a-zA-Z_àâéèêëîïôùûüÀÂÉÈÊËÎÏÔÙÛÜ][a-zA-Z0-9_àâéèêëîïôùûüÀÂÉÈÊËÎÏÔÙÛÜ]*\\b"
+    }
+  }
+}
