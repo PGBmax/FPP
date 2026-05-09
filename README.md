@@ -332,6 +332,144 @@ afficher(kg_vers_livres(70))             # → 154.32...
 | `longueur_mot_min(phrase)` | Longueur du mot le plus court |
 | `longueur_mots_moyenne(phrase)` | Longueur moyenne des mots |
 
+### `include/finance.fpp` — Finance & mathématiques financières
+
+| Fonction | Description |
+|----------|-------------|
+| `interet_simple(C, t, d)` | Intérêt simple |
+| `capital_compose(C, t, n)` | Capital avec intérêts composés |
+| `mensualite(C, t_mensuel, n)` | Mensualité d'un emprunt |
+| `cout_total_emprunt(C, t, n)` | Coût total du crédit |
+| `capital_restant(C, t, n, k)` | Capital restant dû après k mois |
+| `van(taux, flux)` | Valeur actuelle nette (VAN) |
+| `roi(gain, cout)` | Retour sur investissement (ROI %) |
+| `cagr(debut, fin, annees)` | Taux de croissance annuel composé |
+| `payback(investissement, flux_annuel)` | Durée de retour sur investissement |
+| `seuil_rentabilite(fixes, prix_u, var_u)` | Seuil de rentabilité (unités) |
+| `per(prix_action, bna)` | Price-Earning Ratio |
+| `sharpe(rendement, taux_sans_risque, volatilite)` | Ratio de Sharpe |
+| `impot_4_tranches(revenu, s1, t1, s2, t2, s3, t3, t4)` | Impôt à 4 tranches |
+| `ht_vers_ttc(ht, tva_pct)` / `ttc_vers_ht(ttc, tva_pct)` | Conversion HT ↔ TTC |
+| `variation_pct(ancienne, nouvelle)` | Variation en % |
+| *+ 25 autres fonctions* | Rentes, levier, volatilité, rendement… |
+
+### `include/geometrie.fpp` — Géométrie
+
+| Fonction | Description |
+|----------|-------------|
+| `aire_rectangle(l, h)` / `perimetre_rectangle(l, h)` | Rectangle |
+| `aire_triangle_heron(a, b, c)` | Triangle par les 3 côtés (Héron) |
+| `aire_ellipse(a, b)` / `perimetre_ellipse_approx(a, b)` | Ellipse (Ramanujan) |
+| `aire_trapeze(b1, b2, h)` / `aire_losange(d1, d2)` | Trapèze, losange |
+| `aire_polygone_regulier(n, c)` / `perimetre_polygone_regulier(n, c)` | Polygone régulier |
+| `volume_sphere(r)` / `surface_sphere(r)` | Sphère |
+| `volume_cylindre(r, h)` / `surface_cylindre(r, h)` | Cylindre |
+| `volume_cone(r, h)` / `surface_cone(r, h)` | Cône |
+| `volume_tore(R, r)` / `surface_tore(R, r)` | Tore |
+| `volume_ellipsoide(a, b, c)` | Ellipsoïde |
+| `norme2d(x, y)` / `norme3d(x, y, z)` | Norme de vecteur |
+| `scalaire2d(...)` / `scalaire3d(...)` | Produit scalaire |
+| `distance2d(x1, y1, x2, y2)` / `distance3d(...)` | Distance euclidienne |
+| `cart_vers_pol_r(x, y)` / `cart_vers_pol_deg(x, y)` | Coordonnées polaires |
+| `pente(x1, y1, x2, y2)` | Pente d'une droite |
+| `dist_point_droite(px, py, a, b, c)` | Distance point-droite |
+| `angle_triangle(a, b, c)` | Angle via loi des cosinus |
+| `rayon_inscrit(a, b, c)` / `rayon_circonscrit(a, b, c)` | Cercles inscrit/circonscrit |
+| `sin_deg(d)` / `cos_deg(d)` / `tan_deg(d)` | Trigonométrie en degrés |
+| `deg_vers_rad(d)` / `rad_vers_deg(r)` | Conversion d'angles |
+| *+ 15 autres fonctions* | Apothème, diagonales, secteurs, rotations… |
+
+### `include/jeux.fpp` — Jeux & aléatoire
+
+| Fonction | Description |
+|----------|-------------|
+| `lancer_de(n)` | Dé à n faces |
+| `lancer_des(n, f)` | Somme de n dés à f faces |
+| `lancer_des_drop_low(n, f)` | n dés, retire le plus bas (DnD) |
+| `prob_de_sup_egal(n, k)` | Probabilité d'obtenir ≥ k |
+| `esperance_de(n)` | Espérance d'un dé |
+| `valeur_blackjack(carte)` | Valeur d'une carte au blackjack |
+| `binomiale(n, k, p)` | Probabilité de la loi binomiale |
+| `esperance_binomiale(n, p)` / `variance_binomiale(n, p)` | Loi binomiale |
+| `xp_vers_niveau(xp, base)` / `niveau_vers_xp(niv, base)` | Système XP/niveau |
+| `score_normalise(v, min, max)` | Score en % |
+| `terrain_aleatoire(p_eau, p_plaine, p_foret)` | Génération de terrain |
+| `position_y(y0, vy0, g, t)` / `vitesse_y(vy0, g, t)` | Physique de saut |
+| `calculer_degats(min, max, armure_pct)` | Dégâts avec armure |
+| `est_critique(prob_crit_pct)` | Coup critique ? |
+| `appliquer_soin(hp, hp_max, soin)` / `appliquer_degats(hp, dmg)` | Points de vie |
+| `cooldown_restant(tour, tour_util, duree)` | Cooldown en tours |
+
+### `include/bits.fpp` — Manipulation de bits
+
+| Fonction | Description |
+|----------|-------------|
+| `bit_et(a, b)` / `bit_ou(a, b)` / `bit_xor(a, b)` | AND / OR / XOR |
+| `bit_non(a, n_bits)` | NOT sur n bits |
+| `bit_shl(a, k)` / `bit_shr(a, k)` | Décalages gauche / droite |
+| `bit_valeur(n, k)` | Valeur du bit k |
+| `bit_set(n, k)` / `bit_clear(n, k)` / `bit_toggle(n, k)` | Set / Clear / Toggle |
+| `compter_bits_1(n)` | Poids de Hamming (popcount) |
+| `est_puissance_de_2(n)` | Vérification puissance de 2 |
+| `prochain_puissance_2(n)` | Prochaine puissance de 2 ≥ n |
+| `bit_longueur(n)` | ⌊log₂(n)⌋ |
+| `distance_hamming(a, b)` | Distance de Hamming |
+| `rotate_left(v, k, n)` / `rotate_right(v, k, n)` | Rotation circulaire |
+| `masque_bits(k, n)` | Masque de n bits à partir du bit k |
+| `extraire_bits(v, k, n)` / `inserer_bits(v, k, n, val)` | Champs de bits |
+| `checksum_xor(lst)` / `checksum_somme(lst)` | Checksums |
+| `est_mersenne(n)` | Nombre de Mersenne ? |
+| `parite(n)` / `bit_parite_paire(n)` | Parité |
+
+### `include/matrice.fpp` — Matrices & vecteurs
+
+Une matrice N×M est représentée comme une liste plate de N×M éléments, rangée ligne par ligne.
+Accès à l'élément (i, j) : `mat_get(mat, i, j, ncols)` ou indice `i * ncols + j`.
+
+| Fonction | Description |
+|----------|-------------|
+| `mat_zeros(nl, nc)` | Matrice nulle |
+| `mat_identite(n)` | Matrice identité n×n |
+| `mat_remplir(nl, nc, v)` | Matrice remplie d'une valeur |
+| `mat_get(mat, i, j, nc)` | Lecture d'un élément |
+| `mat_trace(mat, n)` | Trace d'une matrice carrée |
+| `mat_det2_liste(mat)` | Déterminant 2×2 |
+| `mat_det3(mat)` | Déterminant 3×3 |
+| `mat_additionner(a, b)` / `mat_soustraire(a, b)` | Addition / Soustraction |
+| `mat_scalaire(mat, k)` | Multiplication par un scalaire |
+| `mat_transposee(mat, nl, nc)` | Transposée |
+| `mat_multiplier(a, b, nla, nca, ncb)` | Multiplication matricielle |
+| `mat_ligne(mat, i, nc)` / `mat_colonne(mat, j, nl, nc)` | Extraction ligne/colonne |
+| `systeme2x2_x(...)` / `systeme2x2_y(...)` | Résolution système 2×2 (Cramer) |
+| `vec_scalaire(u, v)` | Produit scalaire |
+| `vec_norme(u)` / `vec_normaliser(u)` | Norme et normalisation |
+| `vec_additionner(u, v)` / `vec_soustraire(u, v)` | Opérations vectorielles |
+| `vec_distance(u, v)` | Distance euclidienne |
+
+### `include/date.fpp` — Calculs de dates
+
+Les dates sont au format `AAAAMMJJ` (ex : `20240315` = 15 mars 2024).
+
+| Fonction | Description |
+|----------|-------------|
+| `date_annee(d)` / `date_mois(d)` / `date_jour(d)` | Extraction des composantes |
+| `creer_date(a, m, j)` | Construire une date |
+| `est_bissextile(annee)` | Année bissextile ? |
+| `jours_dans_mois(mois, annee)` | Jours dans un mois |
+| `jour_de_annee(date)` | Numéro du jour dans l'année (1-366) |
+| `diff_jours(d1, d2)` | Différence en jours |
+| `diff_semaines(d1, d2)` / `diff_mois(d1, d2)` / `diff_annees(d1, d2)` | Différences |
+| `jour_semaine(date)` | Jour (0=Dim … 6=Sam), algorithme de Zeller |
+| `est_weekend(date)` / `est_ouvrable(date)` | Fin de semaine ? |
+| `numero_semaine(date)` | Numéro de semaine dans l'année |
+| `ajouter_jours(date, n)` | Ajouter n jours (n peut être négatif) |
+| `ajouter_mois(date, n)` / `ajouter_annees(date, n)` | Ajout de mois/années |
+| `date_avant(d1, d2)` / `date_apres(d1, d2)` / `date_egale(d1, d2)` | Comparaison |
+| `date_valide(date)` | Validation d'une date |
+| `trimestre(date)` / `semestre(date)` | Période |
+| `age_annees(date_naissance, date_ref)` | Âge en années révolues |
+| `afficher_date(date)` | Affiche au format JJ/MM/AAAA |
+
 ---
 
 ## Exemples inclus
@@ -407,11 +545,17 @@ F++/
 │   ├── codegen.py          ← Générateur de code C + runtime embarqué
 │   └── interpreteur.py     ← Évaluateur (mode REPL)
 ├── include/
-│   ├── math.fpp            ← Bibliothèque mathématique
-│   ├── stats.fpp           ← Bibliothèque statistique
-│   ├── conversion.fpp      ← Conversions d'unités
-│   ├── algo.fpp            ← Algorithmes (tri, recherche)
-│   └── texte.fpp           ← Traitement de texte
+│   ├── math.fpp            ← Mathématiques avancées
+│   ├── stats.fpp           ← Statistiques descriptives
+│   ├── conversion.fpp      ← Conversions d'unités (50+ fonctions)
+│   ├── algo.fpp            ← Algorithmes (tri, recherche, fenêtres)
+│   ├── texte.fpp           ← Traitement de texte
+│   ├── finance.fpp         ← Finance & mathématiques financières
+│   ├── geometrie.fpp       ← Géométrie 2D/3D & vecteurs
+│   ├── jeux.fpp            ← Jeux, aléatoire & physique
+│   ├── bits.fpp            ← Manipulation de bits & bases
+│   ├── matrice.fpp         ← Matrices & vecteurs
+│   └── date.fpp            ← Calculs sur les dates (AAAAMMJJ)
 └── exemples/
     ├── bonjour.fpp
     ├── fonctions.fpp
