@@ -106,7 +106,17 @@ class Parser:
 
     def declaration(self) -> Declaration:
         ligne, col = self.ligne_col()
-        type_var = self.consommer().value
+        type_tok = self.consommer()
+        type_var = type_tok.value  # "entier", "decimal", "texte", "bool", "liste", "dict", "const"
+
+        # Syntaxe : const entier NOM, const decimal NOM, etc.
+        # Le mot-clé de type après "const" est facultatif ; on le consomme s'il est là.
+        if type_tok.type == TokenType.CONST:
+            if self.courant().type in (TokenType.ENTIER, TokenType.DECIMAL,
+                                       TokenType.TEXTE_TYPE, TokenType.BOOL,
+                                       TokenType.LISTE, TokenType.DICT):
+                self.consommer()   # consomme le type, l'inférence se fait sur la valeur
+
         nom_tok = self.consommer(TokenType.IDENTIFIANT)
         valeur = None
         if self.est(TokenType.EGAL):
