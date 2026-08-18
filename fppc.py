@@ -211,7 +211,7 @@ def compiler(source_fpp: str, source_chemin: str, sortie: str = "a.out",
         f.write(code_c)
 
     # ── 4. Compilation GCC ────────────────────────────────────────────────────
-    gcc_cmd = ["gcc", "-Wall", "-Werror", "-Wextra", "-O3", "-o", sortie, chemin_c, "-lm"]
+    gcc_cmd = ["gcc", "-Wall", "-Werror", "-Wextra", "-g3", "-O3", "-o", sortie, chemin_c, "-lm"]
     nom_sortie = os.path.basename(sortie)
 
     with Spinner(f"GCC  {gray(nom_sortie)}…") as sp:
